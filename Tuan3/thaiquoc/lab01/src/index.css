@@ -1,0 +1,48 @@
+.flex-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+ul>li>a{
+  text-decoration: none;
+  font-weight: bold;
+  color:black
+}
+ul>li{
+  list-style: none;
+}
+.container{
+  width: 100%;
+}
+.menu>ul{
+  display: flex;
+}
+.menu>ul>li{
+  margin-left: 40px;
+  margin-right: 10px;
+}
+#butbox{
+  background-color: pink;
+  border-radius: 20px;
+}
+.session{
+  width: 30%;
+  border-style: solid;
+}
+th{
+  width: 100px;
+  text-align: left;
+}
+#lable-cen{
+  display: flex;
+  justify-content: flex-start;
+
+}
+.footer>.footer1{
+  flex-direction: column;
+}
+.footer{
+  color: white;
+  background-color:black;
+  display: flex;
+  justify-content: space-between;
+}
