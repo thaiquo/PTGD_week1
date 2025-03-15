@@ -29,9 +29,6 @@ function App() {
 
   const [state, dispatch]=useReducer(caculator,{result:0});
 
-  
-
-
 
   return (
     <>
