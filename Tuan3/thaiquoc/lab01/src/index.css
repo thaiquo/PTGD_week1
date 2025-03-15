@@ -12,6 +12,7 @@ ul>li{
 }
 .container{
   width: 100%;
+  border: solid;
 }
 .menu>ul{
   display: flex;

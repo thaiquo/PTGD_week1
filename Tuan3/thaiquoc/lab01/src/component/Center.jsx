@@ -1,8 +1,9 @@
-export default function Center(){
+export default function Center({image,name,title}){
     return (
         <>
          
             <div className="container-center">
+{/* 
               <div className="session">
                 <div id='lable-cen'>
                 <label htmlFor="#" >FILTERS</label>
@@ -29,7 +30,20 @@ export default function Center(){
                 <div className="time_minute">
                   
                 </div>
+              </div> */}
+
+        <div className="aside">
+              <div className="card">
+                   <img src={image} alt="Avatar" style={{ width: "100%" }} />
+                 <div className="content">
+                    <h4><b>{name}</b></h4>
+                     <p>{title}</p>
+                 </div>
               </div>
+        </div>
+      
+
+
             </div> <br /><br />
        
         </>

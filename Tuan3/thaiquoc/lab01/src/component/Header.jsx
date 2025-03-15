@@ -2,12 +2,12 @@ export default function Header(){
     return (
         <>
           
-            <div className="flex-container">
+            <div style={{justifyContent:"space-between"}} className="flex-container">
             <img src="../src/anh/logo.png" alt="" />
-            <input type="text" placeholder='What would you like to cook?'/>
+            <input style={{borderRadius:30,width:200,marginTop:10}} type="text" placeholder='What would you like to cook?'/>
     
-              <div className="menu">
-                <ul>
+              <div  className="menu">
+                <ul >
                   <li><a href="#">What to cook</a></li>
                   <li><a href="#">Recipes</a></li>
                   <li><a href="#">Ingerdients</a></li>
