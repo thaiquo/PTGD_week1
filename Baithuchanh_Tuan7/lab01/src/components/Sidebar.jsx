@@ -6,6 +6,7 @@ const Sidebar = () => {
     <aside className="bg-white col-3">
       <div className="navbar w-400">
         <ul className="navbar-nav flex flex-col items-center w-400">
+         {/* trong cac li la cac navlink co isactive */}
           <li className="nav-item">
             <NavLink
               to="#"
