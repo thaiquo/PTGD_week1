@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
-// import Model from "../pages/Model";
+import Model from "../pages/Model";
 import { useItemContext } from "../contextItem/ProvideItem";
 
 function Detail() {
@@ -11,7 +11,7 @@ function Detail() {
         fetch("https://67f6171e913986b16fa6a104.mockapi.io/people").then(data=>data.json()).then(data=>SetData(data))
     }, []);
 
-    // const {Select,DelItem,Clearn}= useItemContext();
+     const {Select,DelItem,Clearn}= useItemContext();
 
    
     return ( <>
@@ -25,7 +25,7 @@ function Detail() {
         </div>
 
 {/* model */}
-     {/* <Model/> */}
+     <Model/>
 
 
         
@@ -41,7 +41,7 @@ function Detail() {
       <th scope="col">#</th>
     </tr>
   </thead>
-  {/* {Select!=null}{
+  {Select!=null}{
       <tbody id="bang">
         {Select.map(item=>(
             <tr key={item.id}>
@@ -60,7 +60,7 @@ function Detail() {
             ))}
             </tbody>
     
-    } */}
+    }
     
     {
          <tbody id="bang">
