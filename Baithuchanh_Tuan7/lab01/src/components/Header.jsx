@@ -1,5 +1,4 @@
 import {Link} from 'react-router-dom';
-// day la header
 export default function Header(){
     return<>
      

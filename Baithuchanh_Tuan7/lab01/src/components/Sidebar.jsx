@@ -1,6 +1,6 @@
 // src/components/Sidebar.jsx
 import { NavLink } from "react-router-dom";
-// day la sidebar
+
 const Sidebar = () => {
   return (
     <aside className="bg-white col-3">
@@ -31,24 +31,24 @@ const Sidebar = () => {
         </li>
       
         <li className="nav-item">
-        <NavLink className="nav-link"  to="/projects"> <span><img src="Hinhanh/Folder.png" alt="" /></span>
+        <NavLink className="nav-link"  to="/"> <span><img src="Hinhanh/Folder.png" alt="" /></span>
         Projects</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink  className="nav-link" to="/teams">  <span><img src="Hinhanh/Groups.png" alt="" /></span>
+        <NavLink  className="nav-link" to="/">  <span><img src="Hinhanh/Groups.png" alt="" /></span>
         Teams</NavLink>
         </li>
         <li className="nav-item">
           
-        <NavLink  className="nav-link" to="/analytics">  <span><img src="Hinhanh/Pie chart.png" alt="" /></span>
+        <NavLink  className="nav-link" to="/">  <span><img src="Hinhanh/Pie chart.png" alt="" /></span>
         Analytics</NavLink>
         </li>
         <li className="nav-item">
-        <NavLink  className="nav-link" to="/messages">  <span><img src="Hinhanh/Chat.png" alt="" /></span>
+        <NavLink  className="nav-link" to="/">  <span><img src="Hinhanh/Chat.png" alt="" /></span>
         Messages</NavLink>
           </li>
           <li className="nav-item">
-          <NavLink  className="nav-link" to="/integrations">  <span><img src="Hinhanh/Code.png" alt="" /></span>
+          <NavLink  className="nav-link" to="/">  <span><img src="Hinhanh/Code.png" alt="" /></span>
           Integrations</NavLink>
           </li>
        

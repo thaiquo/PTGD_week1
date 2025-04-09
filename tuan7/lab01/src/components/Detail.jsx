@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import Model from "../pages/Model";
 import { useItemContext } from "../contextItem/ProvideItem";
-
+// day la trang detail
 function Detail() {
      const [Data,SetData]=useState([]);
      const [NewData,SetnewData]=useState([]);
