@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 import Model from "../pages/Model";
-import { useItemContext } from "../contextItem/ProvideItem";
+
 
 function Detail() {
      const [Data,SetData]=useState([]);
@@ -11,7 +11,7 @@ function Detail() {
         fetch("https://67f6171e913986b16fa6a104.mockapi.io/people").then(data=>data.json()).then(data=>SetData(data))
     }, []);
 
-     const {Select,DelItem,Clearn}= useItemContext();
+    
 
    
     return ( <>
@@ -41,28 +41,8 @@ function Detail() {
       <th scope="col">#</th>
     </tr>
   </thead>
-  {Select!=null}{
-      <tbody id="bang">
-        {Select.map(item=>(
-            <tr key={item.id}>
-             
-             <td><input type="checkbox" name="" id="" /></td>
-             <td><span><img style={{width:30,height:30}} src={item.avatar} alt="" /></span>{item.name}</td>
-             <td>{item.company}</td>
-             <td>{item.orderValue}</td>
-             <td>{item.orderDate}</td>
-             <td>{item.status}</td>
-             <td><button type="button"><img src="Hinhanh/create.png" alt="" /></button></td>
-        
-             
-           </tr>
-           
-            ))}
-            </tbody>
+  
     
-    }
-    
-    {
          <tbody id="bang">
             {Data.map(item=>(
                 <tr key={item.id}>
@@ -81,7 +61,7 @@ function Detail() {
                 ))}
           </tbody>
 
-    }
+    
             
     
     

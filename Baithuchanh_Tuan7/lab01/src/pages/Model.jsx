@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useItemContext } from "../contextItem/ProvideItem";
+
 
 function Model() {
   //MODLE
@@ -22,21 +22,9 @@ function Model() {
       };
 
 
-      const {AddItem}= useItemContext();
+    
 
-      const handleLuu = () => {
-        const newItem = {
-          id: Date.now(), // ID tạm thời
-          name,
-          company,
-          orderValue,
-          orderDate,
-          status,
-          avatar: previewURL // dùng ảnh preview làm avatar
-        };
-      
-        AddItem(newItem); // thêm vào context => tự động render ra bảng
-      };
+     
       
 
     return ( <>

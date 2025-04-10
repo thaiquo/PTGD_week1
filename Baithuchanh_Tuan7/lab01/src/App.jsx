@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
-import {Routes , Route} from "react-router-dom"
+import {Routes , Route,Navigate} from "react-router-dom"
 import Dashboard from './pages/Dashboard'
-import ProvideItem from './contextItem/ProvideItem'
+import MainLayout from './components/MainLayout'
+import Project from './pages/Project'
+
 
 
 
@@ -17,14 +17,24 @@ function App() {
   return (
     <>
  
- <ProvideItem>
-      <div className="container d-flex">
+  
+      {/* <div className="container d-flex">
       <Sidebar/>
+      
       <Routes>
         <Route path='/dashboard' element={<Dashboard/>}/>
       </Routes>
-      </div>
-      </ProvideItem>
+      </div> */}
+
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/projects" element={<Project/>} />
+        </Route>
+        {/* <Route path="*" element={<Navigate to="/mainlayout" replace />} /> */}
+      </Routes>
+     
    
     </>
   )
