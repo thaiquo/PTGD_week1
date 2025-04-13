@@ -1,161 +1,155 @@
 import { useState } from "react";
 
+function ModelUser({ onAdd }) {
+  const [name, Setname] = useState("");
+  const [company, Setcompany] = useState("");
+  const [orderValue, SetorderValue] = useState("");
+  const [orderDate, SetorderDate] = useState("");
+  const [status, SetStatus] = useState("");
+  const [image, setImage] = useState("");
+  const [previewURL, setPreviewURL] = useState("");
 
-function ModelUser() {
-  //MODLE
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      setPreviewURL(URL.createObjectURL(file));
+    }
+  };
 
-    const [name,Setname]=useState("");
-    const [company,Setcompany]=useState("");
-    const [orderValue,SetorderValue]=useState();
-    const [orderDate,SetorderDate]=useState("");
-    const [status,SetStatus]=useState("");
+  const handleLuu = async () => {
+    const newUser = {
+      name,
+      company,
+      orderValue,
+      orderDate,
+      status,
+      avatar: previewURL || "https://via.placeholder.com/150", // fallback ảnh nếu không có
+    };
 
-    const [image, setImage] = useState("");
-    const [previewURL, setPreviewURL] = useState("");
+    try {
+      const res = await fetch("https://67f6171e913986b16fa6a104.mockapi.io/people", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      });
 
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-          setImage(file); 
-          setPreviewURL(URL.createObjectURL(file)); 
-        }
-      };
+      if (res.ok) {
+        const data = await res.json();
+        onAdd(data); // Truyền về cha để cập nhật bảng
+      } else {
+        alert("Thêm thất bại");
+      }
+    } catch (err) {
+      console.error("Lỗi khi POST:", err);
+    }
+  };
 
+  return (
+    <>
+      <div className="modal fade" id="myModal" tabIndex="-1">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Thêm người dùng mới</h4>
+              <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+            </div>
 
-    
+            <div className="modal-body">
+              <form>
+                <div className="form-group row p-2">
+                  <label className="col-sm-4 col-form-label font-weight-bold">Customer Name</label>
+                  <div className="col-sm-8">
+                    <input
+                      onChange={(e) => Setname(e.target.value)}
+                      type="text"
+                      className="form-control"
+                      placeholder="Nhập CustomerName"
+                    />
+                  </div>
+                </div>
 
-     
-      
+                <div className="form-group row p-2">
+                  <label className="col-sm-4 col-form-label font-weight-bold">Company</label>
+                  <div className="col-sm-8">
+                    <input
+                      onChange={(e) => Setcompany(e.target.value)}
+                      type="text"
+                      className="form-control"
+                      placeholder="Nhập Company"
+                    />
+                  </div>
+                </div>
 
-    return ( <>
-<div className="modal fade" id="myModal" tabIndex="-1">
-  <div className="modal-dialog">
-    <div className="modal-content">
+                <div className="form-group row p-2">
+                  <label className="col-sm-4 col-form-label font-weight-bold">Order Value</label>
+                  <div className="col-sm-8">
+                    <input
+                      onChange={(e) => SetorderValue(e.target.value)}
+                      type="number"
+                      className="form-control"
+                      placeholder="Nhập OrderValue"
+                    />
+                  </div>
+                </div>
 
-      <div className="modal-header">
-        <h4 className="modal-title">Modal Heading</h4>
-        <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+                <div className="form-group row p-2">
+                  <label className="col-sm-4 col-form-label font-weight-bold">Order Date</label>
+                  <div className="col-sm-8">
+                    <input
+                      onChange={(e) => SetorderDate(e.target.value)}
+                      type="date"
+                      className="form-control"
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group row p-2">
+                  <label className="col-sm-4 col-form-label font-weight-bold">Status</label>
+                  <div className="col-sm-8">
+                    <input
+                      onChange={(e) => SetStatus(e.target.value)}
+                      type="text"
+                      className="form-control"
+                      placeholder="Status"
+                    />
+                  </div>
+                </div>
+
+                <div className="form-group row p-2">
+                  <label className="col-sm-4 col-form-label font-weight-bold">Ảnh đại diện</label>
+                  <div className="col-sm-8">
+                    <input
+                      onChange={handleImageChange}
+                      accept="image/*"
+                      type="file"
+                      className="form-control"
+                    />
+                    {previewURL && (
+                      <img src={previewURL} alt="Preview" style={{ marginTop: 10, width: 60, height: 60 }} />
+                    )}
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div className="modal-footer">
+              <button
+                onClick={handleLuu}
+                className="btn btn-success"
+                type="button"
+                data-bs-dismiss="modal"
+              >
+                Lưu
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="modal-body">
-      <form action="">
-                    <div className="form-group row p-2">
-                      <label for="CustomerName" class="col-sm-4 col-form-label font-weight-bold "
-                        >CustomerName</label
-                      >
-                      <div className="col-sm-8">
-                        <input
-                        onChange={(e)=>Setname(e.target.value)}
-                          type="text"
-                          name="CustomerName"
-                          id="CustomerName"
-                          className="form-control"
-                          placeholder="Nhập CustomerName"
-                        />
-                        <span className="err" id="errCustomerName">*</span>
-                      </div>
-                    </div>
-
-                    <div className="form-group row p-2">
-                      <label for="Company" className="col-sm-4 col-form-label font-weight-bold "
-                        >Company</label
-                      >
-                      <div className="col-sm-8">
-                        <input
-                         onChange={(e)=>Setcompany(e.target.value)}
-                          type="text"
-                          name="Company"
-                          id="Company"
-                          className="form-control"
-                          placeholder="Nhập Company"
-                        />
-                        <span className="err" id="errCompany">*</span>
-                      </div>
-                    </div>
-                    <div className="form-group row p-2">
-                      <label for="OrderValue" className="col-sm-4 col-form-label font-weight-bold "
-                        >OrderValue</label
-                      >
-                      <div className="col-sm-8">
-                        <input
-                         onChange={(e)=>SetorderValue(e.target.value)}
-                          type="number"
-                          name="OrderValue"
-                          id="OrderValue"
-                          className="form-control"
-                          placeholder="Nhập OrderValue"
-                        />
-                        <span className="err" id="errOrderValue">*</span>
-                      </div>
-                    </div>
-                    <div className="form-group row p-2">
-                      <label for="OrderDate" className="col-sm-4 col-form-label font-weight-bold "
-                        >OrderDate</label
-                      >
-                      <div className="col-sm-8">
-                        <input
-                         onChange={(e)=>SetorderDate(e.target.value)}
-                          type="date"
-                          name="OrderDate"
-                          id="OrderDate"
-                          className="form-control"
-                          placeholder="Nhập OrderDate"
-                        />
-                        <span className="err" id="errOrderDate">*</span>
-                      </div>
-                    </div>
-                    <div className="form-group row p-2">
-                      <label for="Status" className="col-sm-4 col-form-label font-weight-bold "
-                        >Status</label
-                      >
-                      <div className="col-sm-8">
-                        <input
-                        onChange={(e)=>SetStatus(e.target.value)}
-                          type="text"
-                          name="Status"
-                          id="Status"
-                          className="form-control"
-                          placeholder="Status"
-                        />
-                        <span className="err" id="errStatus">*</span>
-                      </div>
-                    </div>
-                    <div className="form-group row p-2">
-                      <label for="anhDaiDien" className="col-sm-4 col-form-label font-weight-bold "
-                        >Ảnh đại diện</label
-                      >
-                      <div className="col-sm-8">
-                        <input
-                        onChange={(e)=>handleImageChange(e)}
-                          accept="image/jpng, image/jpeg, image/gif, image/png"
-                          type="file"
-                          name="imgDD"
-                          id="imgDD"
-                          className="form-control"
-                        />
-                        <span className="err" id="errAnh">*</span>
-                      </div>
-                    </div>
-          
-         </form>
-      </div>
-
-      <div className="modal-footer">
-                  <button
-                  onClick={()=>handleLuu()}
-                    className="btn btn-success btn-block"
-                    type="button"
-                    id="btnLuu"
-                    data-bs-dismiss="modal"
-                  >
-                    Lưu
-                  </button>
-     </div>
-
-    </div>
-  </div>
-</div>
-    </> );
+    </>
+  );
 }
 
 export default ModelUser;

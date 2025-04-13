@@ -12,11 +12,15 @@ function Detail() {
       .then((res) => res.json())
       .then((data) => SetData(data));
   }, []);
-
+// đây là lúc chỉnh sửa 1 user
   const handleEditSave = (updatedUser) => {
     SetData((prev) =>
       prev.map((user) => (user.id === updatedUser.id ? updatedUser : user))
     );
+  };
+//đây là lúc thêm user mới
+  const handleAddUser = (newUser) => {
+    SetData((prev) => [...prev, newUser]); // thêm vào cuối danh sách
   };
 
   return (
@@ -108,6 +112,7 @@ function Detail() {
         </table>
 
         <ModelEditUser editData={EditData} onSave={handleEditSave} />
+        <ModelUser onAdd={handleAddUser} />
       </div>
     </>
   );
