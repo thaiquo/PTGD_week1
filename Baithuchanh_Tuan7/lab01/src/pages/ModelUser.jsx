@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function Model() {
+function ModelUser() {
   //MODLE
 
     const [name,Setname]=useState("");
@@ -158,4 +158,4 @@ function Model() {
     </> );
 }
 
-export default Model;
+export default ModelUser;
