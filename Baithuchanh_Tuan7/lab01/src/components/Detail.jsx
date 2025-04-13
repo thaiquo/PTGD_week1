@@ -50,7 +50,7 @@ function Detail() {
                  <td><input type="checkbox" name="" id="" /></td>
                  <td><span><img style={{width:30,height:30}} src={item.avatar} alt="" /></span>{item.name}</td>
                  <td>{item.company}</td>
-                 <td>{item.orderValue}</td>
+                 <td>${item.orderValue}</td>
                  <td>{item.orderDate}</td>
                  <td>{item.status}</td>
                  <td><button type="button"><img src="Hinhanh/create.png" alt="" /></button></td>
