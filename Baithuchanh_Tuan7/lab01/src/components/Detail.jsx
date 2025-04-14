@@ -95,7 +95,7 @@ function Detail() {
                 <td>{item.company}</td>
                 <td>${item.orderValue}</td>
                 <td>{item.orderDate}</td>
-                <td>{item.status}</td>
+                <td style={{fontStyle:"oblique",color:item.status=="New"?"blue":(item.status=="Completed"?"green":(item.status=="In-progress"?"orange":"black"))}}>{item.status}</td>
                 <td>
                   <button
                     data-bs-toggle="modal"

@@ -7,6 +7,10 @@ import {Routes , Route,Navigate} from "react-router-dom"
 import Dashboard from './pages/Dashboard'
 import MainLayout from './components/MainLayout'
 import Project from './pages/Project'
+import Analytics from './pages/Analytics'
+import Team from './pages/Team'
+import Message from './pages/Message'
+import Intergration from './pages/Intergrations'
 
 
 
@@ -31,6 +35,10 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/projects" element={<Project/>} />
+          <Route path="/teams" element={<Team/>} />
+          <Route path="/analytics" element={<Analytics/>} />
+          <Route path="/messages" element={<Message/>} />
+          <Route path="/integrations" element={<Intergration/>} />
         </Route>
         {/* <Route path="*" element={<Navigate to="/mainlayout" replace />} /> */}
       </Routes>
