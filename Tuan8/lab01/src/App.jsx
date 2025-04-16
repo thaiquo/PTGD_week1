@@ -5,6 +5,7 @@ import MainSection from './components/MainSection';
 import RecipePopup from './components/RecipePopup';
 import SummerRecipes from './components/SummerRecipes';
 import EditorsPick from './components/EditorsPick';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <MainSection/>
           <SummerRecipes/>
           <EditorsPick/>
+          <Footer/>
          
         </div>
       );
