@@ -3,6 +3,8 @@ import React from 'react';
 import Header from './components/Header';
 import MainSection from './components/MainSection';
 import RecipePopup from './components/RecipePopup';
+import SummerRecipes from './components/SummerRecipes';
+import EditorsPick from './components/EditorsPick';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
           <Header />
           <RecipePopup/>
           <MainSection/>
+          <SummerRecipes/>
+          <EditorsPick/>
          
         </div>
       );
